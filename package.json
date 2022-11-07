@@ -5,14 +5,14 @@
   "homepage": "https://kudese.github.io/goit-js-hw-09/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /test-for-all/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kudese/goit-js-hw-09.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "kudese",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"

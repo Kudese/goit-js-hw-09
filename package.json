@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kudese/goit-js-hw-09.git"
+    "url": "git+https://github.com/Kudese/goit-js-hw-09"
   },
   "keywords": [],
-  "author": "kudese",
+  "author": "kudesenp",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"

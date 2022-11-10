@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix'
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 const options = {
@@ -31,7 +32,7 @@ function TimeRanges(selectedDates) {
  
   if (dateSet - dateCurrent < 0) {
     elButtonStart.disabled = true;
-    alert('Please choose a date in the future');
+    Notiflix.Notify.failure('Please choose a date in the future');
   } else {
     timeDifference = addLeadingZero(convertMs(dateSet - dateCurrent));
     elButtonStart.disabled = false;
@@ -70,7 +71,6 @@ elButtonStart.addEventListener('click', startTimer);
 let updateWatchFace;
 
 function startTimer() {
-
 if (!activTimer) {
   updateWatchFace = setInterval(updateValueTimer, 1000);
   activTimer = true
@@ -93,6 +93,7 @@ const updateValueTimer = function () {
     elDataMinutes.textContent = '00';
     elDataHours.textContent = '00';
     elDataDays.textContent = '00';
+    Notiflix.Notify.success("Timer is over")
     return;
   }
 }

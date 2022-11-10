@@ -22,16 +22,20 @@ const elDataDays = document.querySelector('[data-days]');
 let timeDifference = '';
 let dateSet;
 let dateCurrent;
+let activTimer = false
 function TimeRanges(selectedDates) {
-  dateCurrent = Date.now();
-  dateSet = new Date(selectedDates);
+  if (!activTimer) {
+    dateCurrent = Date.now();
+    dateSet = new Date(selectedDates);
+  }
+ 
   if (dateSet - dateCurrent < 0) {
     elButtonStart.disabled = true;
     alert('Please choose a date in the future');
   } else {
     timeDifference = addLeadingZero(convertMs(dateSet - dateCurrent));
     elButtonStart.disabled = false;
-    console.log(timeDifference);
+    
    
 }
 
@@ -64,11 +68,19 @@ function addLeadingZero({ days, hours, minutes, seconds }) {
 
 elButtonStart.addEventListener('click', startTimer);
 let updateWatchFace;
+
 function startTimer() {
-  updateWatchFace = setInterval(name, 1000);
+
+if (!activTimer) {
+  updateWatchFace = setInterval(updateValueTimer, 1000);
+  activTimer = true
+  elButtonStart.disabled=true
+  elInputFild.disabled=true
+}
+  
 }
 
-const name = function () {
+const updateValueTimer = function () {
   elDataSecond.textContent = timeDifference.stringSecond;
   elDataMinutes.textContent = timeDifference.stringMinutes;
   elDataHours.textContent = timeDifference.stringHours;
@@ -81,7 +93,6 @@ const name = function () {
     elDataMinutes.textContent = '00';
     elDataHours.textContent = '00';
     elDataDays.textContent = '00';
-    // console.log('Stop');
     return;
   }
 }
